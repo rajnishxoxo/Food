@@ -1,10 +1,33 @@
-import React  from "react"
+import React from "react";
+import restaurantList from "./Utils/MockData.js";
 
-const RestaurantCard =()=>{
+const RestaurantCard = ({
+    cloudinaryImageId,
+    name,
+    cuisines = [],
+    area,
+    lastMileTravelString,
+    costForTwoString,
+    avgRating,
+  }) => {
+    return (
+      <div className="card">
+        <img className="card-logo"
+          src={
+            "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
+            cloudinaryImageId
+          }
+        />
+        <h2>{name}</h2>
+        <h4>{cuisines.join(",")}</h4>
+        <h4>{area}</h4>
+        <span>
+        <h4>{avgRating}<i className="fa-solid fa-star"></i></h4>
+          <h4>{lastMileTravelString}</h4>
+          <h4>{costForTwoString}</h4>
+          </span>
+    </div>
+  );
+};
 
-    return(
-        <div>
-            
-        </div>
-    )
-}
+export default RestaurantCard;

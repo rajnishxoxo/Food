@@ -1,4 +1,6 @@
 import React from "react";
+import restaurantList from "./Utils/MockData.js";
+import RestaurantCard from "./RestaurantCard.js";
 
 const Body = () => {
     return (

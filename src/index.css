@@ -60,3 +60,8 @@
     margin: 20px;
     cursor: pointer;
 }
+
+.card-logo{
+    width: 100%;
+    object-fit: contain;
+}
