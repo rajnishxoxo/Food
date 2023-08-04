@@ -13,21 +13,20 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
+  
     const data = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=16.2893144&lng=80.4604643&is-seo-homepage-enabled=true"
     );
     const json = await data.json();
 
     setListOfRestaurant(
-      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
 
-    setFilterRestro( json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setFilterRestro( json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   };
 
-  if (listOfRestaurants.length === 0) {
-    return <Shimmer />;
-  }
+
 
   const [value, setValue] = useState("");
 
