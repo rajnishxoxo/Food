@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import restaurantList from "./Utils/MockData.js";
 import RestaurantCard from "./RestaurantCard.js";
+import Shimmer from "./Shimmer.js";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurant] = useState(restaurantList);
 
   useEffect(() => {
-    
-   fetchData();
-  
+    fetchData();
   }, []);
 
   const fetchData = async () => {
@@ -16,17 +15,19 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=16.2893144&lng=80.4604643&is-seo-homepage-enabled=true"
     );
     const json = await data.json();
-    console.log(json.data.cards[5].card.card.gridElements.infoWithStyle.restaurants[0].info);
+    console.log(
+      json.data.cards[5].card.card.gridElements.infoWithStyle.restaurants[0]
+        .info
+    );
 
-    setListOfRestaurant( json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    setListOfRestaurant(
+      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
   };
 
-  if(listOfRestaurants.length===0){
-    return(
-      <h1>Loading...</h1>
-    )
+  if (listOfRestaurants.length === 0) {
+    return <Shimmer />;
   }
-
 
   return (
     <div className="restaurant-list">

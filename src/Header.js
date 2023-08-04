@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
 const Header = () => {
+
+  const [buttonText,setButtonText] = useState('Login');
+
+  function handleClick(){
+    setButtonText('Logout')
+    if(buttonText==="Logout"){
+      setButtonText('login')
+    }
+  }
+
   return (
     <div className="header">
       <div className="logo-container">
@@ -15,6 +25,7 @@ const Header = () => {
           <li>
             <i className="fa-solid fa-cart-shopping"></i>
           </li>
+          <button className="btn-login" onClick={handleClick}>{buttonText}</button>
         </ul>
       </div>
     </div>
