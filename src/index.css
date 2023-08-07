@@ -25,6 +25,9 @@
 }
 
 .nav-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   padding: 0 10px 0;
   width: auto;
 }
@@ -86,12 +89,6 @@
   margin: 20px;
 }
 
-.btn-login{
-    margin-top: 30px;
-    padding: 0 10px;
-    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-    background-color: #D9CFCF;
-}
 
 .searchBox{
   display: flex;
@@ -129,4 +126,12 @@
 .footer-section>p{
   font-size: 20px;
   margin-left: 40%;
+}
+
+
+.btn-login{
+  margin-bottom: 20px;
+  margin-top: 30px;
+  width: 50px;
+  padding: 2px;
 }
