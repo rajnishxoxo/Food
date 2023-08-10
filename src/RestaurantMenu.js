@@ -17,16 +17,36 @@ const RestaurantMenu = () => {
     SetRestaurant(json.data);
   };
 
-  const {name,cuisines,avgRatingString,costForTwoMessage} = restaurant?.cards[0]?.card?.card?.info;
+  if (restaurant == null) return <Shimmer />;
 
-  
+  const { name, cuisines, avgRatingString, costForTwoMessage } =
+    restaurant?.cards[0]?.card?.card?.info;
 
-  return restaurant===null?<Shimmer/>:  (
+  const itemcard =
+    restaurant?.cards[2].groupedCard.cardGroupMap.REGULAR.cards[2].card.card
+      .itemCards;
+
+  console.log(itemcard);
+
+  itemcard.map((item) => {
+    console.log(item.card.info.name);
+  });
+
+  return (
     <div>
       <h1>{name}</h1>
       <h3>{cuisines.join(",")}</h3>
       <h3>Rating:{avgRatingString}</h3>
       <h3>Cost:{costForTwoMessage}</h3>
+
+      <h1>Menu</h1>
+<ul>
+  {itemcard.map((item) => (
+    <li>{item.card.info.name}</li>
+  ))}
+</ul>
+    
+      
     </div>
   );
 };
