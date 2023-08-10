@@ -26,11 +26,7 @@ const RestaurantMenu = () => {
     restaurant?.cards[2].groupedCard.cardGroupMap.REGULAR.cards[2].card.card
       .itemCards;
 
-  console.log(itemcard);
-
-  itemcard.map((item) => {
-    console.log(item.card.info.name);
-  });
+ 
 
   return (
     <div>
@@ -42,7 +38,7 @@ const RestaurantMenu = () => {
       <h1>Menu</h1>
 <ul>
   {itemcard.map((item) => (
-    <li>{item.card.info.name}</li>
+    <li key={item.card.info.id}>{item.card.info.name}</li>
   ))}
 </ul>
     
