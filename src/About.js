@@ -3,20 +3,26 @@ import UserClass from "./UserClass";
 import React from "react";
 
 class About extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  componentDidMount() {
-    console.log("Parent Mounted");
-  }
+ 
 
   render() {
     return (
       <div>
-        <h1>About us Page</h1>
-        <UserClass name={"Rajnish"} location={"Pune-MH"} />
-        <UserClass name={"Elon"} location={"Las vegas"} />
+        <p className="about-us-Section">
+          Welcome to Swiggy, your go-to destination for delicious food delivered
+          right to your doorstep. At Swiggy, we're on a mission to revolutionize
+          the way you experience food delivery. Our platform brings together a
+          curated selection of restaurants, a seamless ordering process, and
+          top-notch delivery services to create an unparalleled dining
+          experience.
+        </p>
+        <h3> Our Mission</h3>
+        <p>
+          Our mission is simple: to connect food enthusiasts with the flavors
+          they love, all while supporting local businesses. We're committed to
+          delivering not just food but also convenience, choice, and moments of
+          delight.
+        </p>
       </div>
     );
   }
