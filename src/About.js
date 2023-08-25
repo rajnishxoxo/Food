@@ -2,27 +2,24 @@ import UserClass from "./UserClass";
 
 import React from "react";
 
-class About extends React.Component{
-    constructor(props){
-        super(props);
-    }
+class About extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
+  componentDidMount() {
+    console.log("Parent Mounted");
+  }
 
-    componentDidMount(){
-
-        console.log("Parent Mounted")
-    }
-
-    render(){
-        return(
-            <div>
-                <h1>About us Page</h1>
-                <UserClass name={"Rajnish"} location={"Pune-MH"} />
-                <UserClass name={"Elon"} location={"Las vegas"} />
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div>
+        <h1>About us Page</h1>
+        <UserClass name={"Rajnish"} location={"Pune-MH"} />
+        <UserClass name={"Elon"} location={"Las vegas"} />
+      </div>
+    );
+  }
 }
-
 
 export default About;
