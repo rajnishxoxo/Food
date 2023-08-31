@@ -6,7 +6,16 @@ import { Menu_API } from "./Constant";
 const RestaurantMenu = () => {
   const [restaurant, SetRestaurant] = useState(null);
 
-  const [resInfo, setResInfo] = useState(null);
+  const [showmenu , setShowMenu] = useState(true)
+
+  const handleClick = ()=>{
+    if(showmenu==true){
+      setShowMenu(false)
+    }else{
+      setShowMenu(true)
+    }
+  }
+
   const { resID } = useParams();
 
   useEffect(() => {
@@ -19,7 +28,6 @@ const RestaurantMenu = () => {
 
     const json = await data.json();
 
-    console.log(json)
     SetRestaurant(json.data);
   };
 
@@ -32,19 +40,21 @@ const RestaurantMenu = () => {
     restaurant?.cards[2].groupedCard.cardGroupMap.REGULAR.cards[2].card.card
       .itemCards;
 
+
+      
  
 
   return (
-    <div>
+    <div >
       <h1>{name}</h1>
       <h3>{cuisines.join(",")}</h3>
       <h3>Rating:{avgRatingString}</h3>
       <h3>Cost:{costForTwoMessage}</h3>
 
       <h1>Menu</h1>
-<ul>
-  {itemcard.map((item) => (
-    <li key={item.card.info.id}>{item.card.info.name} - ₹{item.card.info.price/100}</li>
+<ul className="menu " onClick={handleClick}>
+  { showmenu && itemcard.map((item)  => (
+    < li key={item.card.info.id}>{item.card.info.name} - ₹{item.card.info.price/100}</li>
   ))}
 </ul>
     

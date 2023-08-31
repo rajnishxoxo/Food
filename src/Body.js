@@ -4,6 +4,8 @@ import RestaurantCard from "./RestaurantCard.js";
 import Shimmer from "./Shimmer.js";
 import { Link } from "react-router-dom";
 
+import { isRestroOpen } from "./RestaurantCard.js";
+
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurant] = useState(restaurantList);
 
@@ -12,6 +14,9 @@ const Body = () => {
   useEffect(() => {
     fetchData();
   }, []);
+
+  const NewRestroCard = isRestroOpen(RestaurantCard)
+  
 
   {/*https://www.swiggy.com/dapi/restaurants/list/v5?lat=16.2893144&lng=80.4604643&is-seo-homepage-enabled=true*/}
 
@@ -62,7 +67,8 @@ const Body = () => {
       </div>
       <div className="restaurant-list">
         {filterRestro.map((restaurant) => {
-          return <Link  key={restaurant.id} to={"/Restaurant/"+restaurant.info.id}><RestaurantCard {...restaurant.info} /></Link>;
+       console.log(restaurant.info.isOpen)
+          return <Link  key={restaurant.id} to={"/Restaurant/"+restaurant.info.id}>{restaurant.info.isOpen?<NewRestroCard {...restaurant.info}/>:<RestaurantCard {...restaurant.info}/>}</Link>;
         })}
       </div>
     </>

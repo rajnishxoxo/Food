@@ -1,5 +1,4 @@
 import React from "react";
-import restaurantList from "./Utils/MockData.js";
 
 const RestaurantCard = ({
   cloudinaryImageId,
@@ -34,4 +33,14 @@ const RestaurantCard = ({
   );
 };
 
+export const isRestroOpen = (RestaurantCard)=>{
+  return (props)=>{
+    return(
+      <>
+      <div>Open</div>
+      <RestaurantCard {...props}/>
+      </>
+    )
+  }
+}
 export default RestaurantCard;
